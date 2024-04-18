@@ -1,0 +1,266 @@
+1. Lập trình huớng đối tượng là gì ?
+- Là phương pháp để gỉai quyết bài toán khi áp dụng sẽ trở nên dễ phát triển và bảo trì hơn. Phương pháp này sẽ giải
+quyết bài toàn bằng cách chia chương trình thành các đối tượng.
+
+2. Các khái niệm cơ bản trong lập trình hướng đối tượng
+  a) Lớp (class)
+  - Là nơi định nghĩa thông tin về đối tượng    (Phụ nữ)
+  b) Đối tượng (object)
+  - Là thể hiện của một lớp, đối tượng là một biến (Maria Ozaoa)
+  c) Thuộc tính (attribute)
+  - Là các đặc điểm của đối tượng (tên, tuổi)
+  d) Phương thức (method)
+  - Là hành vi (hành động) của đối tượng (múa, nhảy, cưỡi)
+
+3. Biến static
+- Là biến có thể sử dụng mà không cần phải khởi tạo đối tượng. Được dùng để lưu thông tin chung cho tất cả các đối tượng
+ và lưu các hằng số (Giống như biến PI)
+- Là biến được dùng chung cho tất cả các đối tượng
+
+4. Phương thức nạp chồng chất
+
+`class Math{
+ 	public static int max(int a, int b) {
+ 		return a > b ? a : b;
+ 	}
+
+ 	public static int max(int a, int b, int c) {
+ 		return max(max(a, b), c);
+ 	}
+ }
+
+ class Entry {
+ 	public static void main(String[] args) {
+ 		System.out.println(Math.max(3, 5, 2));
+ 	}
+ }` // 5
+
+5. Tính đóng gói
+- Là kĩ thuật giúp che giấu thông tin bên trong đối tượng. Mục đích là hạn chế lỗi khi phát triền chương trình
+
+6. Getter và Setter
+- 2 hàm này trong java dùng để truy cập và cập nhật giá trị của thuộc tính trong một lớp
++) Getter: trả về giá trị của một thuộc tính cụ thể, cho phép đọc giá trị của thuộc tính từ bên ngoài lớp, nhưng
+không cho phép thay đổi giá trị của thuộc tính đó
++) Setter: cập nhật giá trị của một thuộc tính cụ thể, cho phép thay đổi giá trị của thuộc tính bên ngoài lớp
+
+7. Tính kế thừa
+- Là thừa hưởng lại những thuộc tính và phương thức của một lớp
+- `supper()`` được dùng để kế thừa trong constructor
+- dùng `@Override` để ghi đè các phương thức của lớp cha
+
+8. Các loại kế thừa trong java (có 3 kiểu)
++) Đơn kế thừa
++) Kế thừa nhiều cấp
++) Kế thừa thứ bậc
+
+9. Up-casting và Down-casting
+- Khi biến của lớp cha tham chiếu tới đối tượng của lớp con (đối tượng của lớp con bị chuyển kiểu dữ liệu về lớp cha),
+thí đó gọi là up-casting
+- Ngược lại với up-casting là down-casting (chuyển đổi kiểu dữ liệu của lớp cha về lớp con)
+
+`class Animal {
+ 	public void sound() {
+ 		System.out.println("some sound");
+ 	}
+ }
+
+ class Dog extends Animal {
+ 	public void sound() {
+ 		System.out.println("woof woof");
+ 	}
+ 	public void play() {
+ 		System.out.println("The dog is playing");
+ 	}
+ }
+
+ public class Entry {
+ 	public static void main(String[] args) {
+ 		Animal animal = new Dog();
+ 		// Down-casting
+ 		((Dog)animal).play();
+ 	}
+ }`//The dog is playing
+
+10. Tính đa hình trong java
+- Được thể hiện trong code với 3 hình thức:
++) Nạp chồng chất
++) Ghi đè phương thức
++) Đa hình thông qua các đối tượng đa hình
+
+*ví dụ: Đa hình với nạp chồng phương thức
+
+`package OOP;
+
+ class Calculator {
+ 	public int add(int a, int b) {
+ 		return a + b;
+ 	}
+
+ 	public double add(double a, double b) {
+ 		return a + b;
+ 	}
+
+ 	public int add(int a, int b, int c) {
+ 		return a + b + c;
+ 	}
+ }
+
+ public class Entry {
+ 	public static void main(String[] args) {
+ 		Calculator calculator = new Calculator();
+ 		System.out.println(calculator.add(1, 2));
+ 		System.out.println(calculator.add(3.3, 4.2));
+ 		System.out.println(calculator.add(1, 2, 3));
+ 	}
+ }`
+
+*ví dụ: Đa hình với ghi đè phương thức
+ `class Employee {
+  	private String name;
+  	private int salary;
+
+  	public Employee(String name, int salary) {
+  		super();
+  		this.name = name;
+  		this.salary = salary;
+  	}
+
+  	public String getName() {
+  		return name;
+  	}
+
+  	public void setName(String name) {
+  		this.name = name;
+  	}
+
+  	public int getSalary() {
+  		return salary;
+  	}
+
+  	public void setSalary(int salary) {
+  		this.salary = salary;
+  	}
+
+  	public void display() {
+  		System.out.println("Name: " + getName());
+  		System.out.println("Salary: " + getSalary());
+  	}
+  }
+
+  class Manager extends Employee {
+  	private int bonus;
+
+  	public Manager(String name, int salary, int bonus) {
+  		super(name, salary);
+  		this.bonus = bonus;
+  	}
+
+  	public int getBonus() {
+  		return bonus;
+  	}
+
+  	public void setBonus(int bonus) {
+  		this.bonus = bonus;
+  	}
+
+  	@Override
+  	public int getSalary() {
+  		return super.getSalary() + bonus;
+  	}
+  }`
+
+*ví dụ: Đa hình thông qua các đối tượng đa hình
+`package OOP;
+
+ class Animal {
+     public void sound() {
+         System.out.println("some sound");
+     }
+ }
+
+ class Dog extends Animal {
+     public void sound() {
+         System.out.println("bow wow");
+     }
+ }
+
+ class Cat extends Animal {
+     public void sound() {
+         System.out.println("meow meow");
+     }
+ }
+
+ class Duck extends Animal {
+     public void sound() {
+         System.out.println("quack quack");
+     }
+ }
+
+ public class Entry {
+ 	public static void main(String[] args) {
+ 		Animal animal = new Animal();
+ 		animal.sound();
+ 		animal = new Dog();
+ 		animal.sound();
+ 		animal = new Duck();
+ 		animal.sound();
+ 		animal = new Cat();
+ 		animal.sound();
+ 	}
+ }
+`
+
+11. Lớp trừu tượng
+- Tính trừu tượng là một tính chất mà chỉ tập trung vào những tính năng của đối tượng, và ẩn đi những thông tin không
+cần thiết.
+- Để thực hiện tính trừu tượng trong java, thì có thể sử dụng lớp trừu tượng (abstract class) và interface
++) Abstract class
+    - Nếu một lớp được khai báo là lớp trừu tượng thì không thể khởi tạo đối tượng của lớp đó, mà chỉ có thể khởi tạo
+    đối tượng của lớp con
+    - Lớp trừu tượng có thể có các phương thức trừu tượng. Phương thức trừu tượng là phương thức mà chỉ có phần khai báo
+    không có phần thân
+    - Nếu một lớp được kế thừa từ phương thức trừu tượng, thì phải ghi đè tất cả các phương thức trừu tượng
+        `abstract class Animal {
+         	public abstract void makeSound();
+         }
+
+         class Cat extends Animal {
+         	@Override
+         	public void makeSound() {
+         		System.out.println("meow meow");
+         	}
+         }
+
+         public class Entry {
+         	public static void main(String[] args) {
+         		Animal a = new Cat();
+         		a.makeSound();
+         	}
+         }`
+    => Lớp trừu tượng được dùng làm lớp cha cho các lớp có cùng bản chất. Tuy nhiên vẫn có thể khai báo các phương thức
+    và thuộc tính ở phần thân nên việc sử dụng lớp TRỪU TƯỢNG là chưa hoàn toàn
+
++) Interface
+- Dùng để lưu trữ các phương thức trừu tượng và các biến hằng số
+    (+) Giống với lớp trừu tượng, không thể khởi tạo đối tượng của interface mà chỉ có thể khởi tạo được đối tượng từ
+    các lớp kế thừa.
+    (+) Tất cả các phương thức trong interface đều là các phương thức trừu tượng và các biến đều hiểu là hằng số
+    (+) Một lớp có thể kế thừa được nhiều interface. Để kế thừa Interface dùng từ khóa `implements`.
+
+12. Quan hệ phụ thuộc là gì ?
+- Quan hệ phụ thuộc là quan hệ mà đối tượng của lớp này sử dụng đối tượng của lớp kia.
+
+13. Quan hệ kế hợp là gì ?
+- Quan hệ kết hợp xảy ra khi một đối tượng có thuộc tính là một đối tượng khác, quan hệ kết hợp được chia thành hai loại
+là thu nạp và quan hệ hợp thành.
+
+14. Quan hệ thu nạp là gì ?
+- Quan hệ thu nạp là một đối tượng có thuộc tính là một đối tượng khác và 2 đối tượng này có thể tồn tại độc lập
+
+15. Quan hệ hợp thành là gì ?
+- Quan hệ hợp thành là khi đối tượng của lớp Class B là 1 phần trong đối tượng của lớp Class A
+
+16. List
+- List là một Interface trong gói "java.util" đại diện cho tập hợp có thứ tự các phần tử, trong đó phần tử có thể trùng
+lặp và có thể truy cập bằng các chỉ mục

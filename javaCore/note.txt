@@ -1,0 +1,68 @@
+1. Kiểu dữ liệu char
+public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        char c = (char)(sc.next().charAt(0) + 1);
+		System.out.println(c);
+	}
+    //Nhập: a => b
+
+2. So sánh với chuỗi
+public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String name1 = sc.next();
+		String name2 = sc.next();
+        if(name1.equals(name2)) {
+            System.out.println("two people have the same name");
+        }else {
+            System.out.println("two people don't have the same name");
+        }
+	}
+
+3. Bài tập sắp xếp
+import java.util.Scanner;
+
+public class Array {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+
+	    for (int i = 0; i < n; i++) {
+	        for (int j = i + 1; j < n; j++) {
+	            if (arr[i] > arr[j]) {
+	                // Nếu arr[i] > arr[j] thì hoán đổi giá trị của arr[i] và arr[j]
+	                int temp = arr[i];
+	                arr[i] = arr[j];
+	                arr[j] = temp;
+	            }
+	        }
+	    }
+
+		for (int i = 0; i < n; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+}
+
+4. Đếm số kí tự có trong chuỗi
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        char c = sc.next().charAt(0);
+        int count = 0;
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == c){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+5.

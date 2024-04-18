@@ -1,0 +1,107 @@
+1. Phương Thức `length`
+- Trả về độ dài của một String
+
+`import java.util.Scanner;
+ public class Array {
+ 	public static void main(String[] args) {
+ 		String s = "Code";
+ 		System.out.print(s.length());
+ 	}
+ }`
+
+2. Phương thức charAt()
+- Trả về một kí tự trong String
+
+ `import java.util.Scanner;
+
+  public class Array {
+  	public static void main(String[] args) {
+  		String s = "Code";
+  		System.out.print(s.charAt(2));
+  	}
+  }`
+
+3. Phương thức replace
+- Thay thế các chuỗi/kí tự trong String
+
+`import java.util.Scanner;
+ public class Array {
+ 	public static void main(String[] args) {
+ 		System.out.println("Cod3l3arn".replace('3', 'e'));
+ 		System.out.println("Blackcat".replace("Black", "White"));
+ 	}
+ }`
+
+4. Phương thức toUpperCase/toLowerCase
+- Đây là hai phương thức dùng để chuyển đổi chuỗi/kí tự thành in
+hoa về in thường và ngược lại
+
+`import java.util.Scanner;
+ public class Array {
+ 	public static void main(String[] args) {
+ 		String s = "CoDeLeArN";
+ 		System.out.println(s.toUpperCase());
+ 		System.out.println(s.toLowerCase());
+ 	}
+ }`
+
+5. Phương thức indexOf
+- Đây là phương thức trả về vị trí xuất hiện đầu tiên của String
+trong String khác, nếu không tìm thấy trả về 1.
+
+`import java.util.Scanner;
+ public class Array {
+ 	public static void main(String[] args) {
+ 		String s = "Codelearn";
+ 		System.out.println(s.indexOf("learn"));
+ 		System.out.println(s.indexOf("black"));
+ 	}
+}` \\ 4
+   \\ -1
+
+6. Phương thức startsWith và endsWith
+- Phương thức này kiểm tra một chuỗi có bắt đầu hoặc kết thúc bằng
+một chuỗi khác không.
+
+`import java.util.Scanner;
+public class Array {
+	public static void main(String[] args) {
+		String name = "Codelearn";
+		System.out.println(name.startsWith("Code"));
+		System.out.println(name.startsWith("abc"));
+		System.out.println(name.endsWith("rn"));
+		System.out.println(name.endsWith("z"));
+	}
+}`
+
+7. Phương thức split
+- Phương thức này dùng để tách một xâu ra thành mảng các xâu dựa trên
+một sâu cho trước
+
+`import java.util.Scanner;
+ public class Array {
+ 	public static void main(String[] args) {
+ 		String s = "Welcome to codelearn!";
+ 		String[] words = s.split(" ");
+ 		for(String word:words) {
+ 			System.out.println(word);
+ 		}
+ 	}
+ }`
+ //- String[] words = s.split(" "); - Sử dụng phương thức split() của lớp String
+ để phân tách chuỗi s thành một mảng các từ. Ký tự phân tách được chỉ định là khoảng trắng "
+ //- for(String word:words) { - Vòng lặp for-each để duyệt qua mỗi phần tử trong mảng words
+
+8. Phương thức substring
+- Đây là phương thức dùng để lấy ra một chuỗi con dựa trên chỉ số bắt đầu và chỉ số kết thúc
+của một sau khác.
+
+`import java.util.Scanner;
+ public class Array {
+ 	public static void main(String[] args) {
+ 		String name = "Codelearn";
+ 		System.out.println(name.substring(0, 2));
+ 		System.out.println(name.substring(0, 4));
+ 		System.out.println(name.substring(4));
+ 	}
+ }`
